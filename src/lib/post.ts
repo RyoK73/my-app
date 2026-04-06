@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
+import { consola } from "consola";
 
 // contentsのpathの宣言
 const postDirectory = path.join(process.cwd(), "contents");
@@ -14,9 +15,9 @@ type params = {
 };
 // mdファイルをreactコンポーネントに変換する関数
 const getPostData = (slug: string): params => {
-    const mdDirectory = path.join(postDirectory, `${slug}.md`);
+    const mdFile = path.join(postDirectory, `${slug}.md`);
     // mdファイルの取得
-    const fileContent = fs.readFileSync(mdDirectory);
+    const fileContent = fs.readFileSync(mdFile);
     // gray-matterでmdファイルのfrontmatterを取得
     const mdData = matter(fileContent);
     // reactコンポーネントに変換
@@ -29,3 +30,5 @@ const getPostData = (slug: string): params => {
         title: mdData.data.title,
     };
 };
+
+export default getPostData;
