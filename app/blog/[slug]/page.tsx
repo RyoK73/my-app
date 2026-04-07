@@ -11,7 +11,7 @@ const blogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <article className="prose">
             <header>
                 <h1>{pageContent.title}</h1>
-                <p>{pageContent.date}</p>
+                <time>{pageContent.date}</time>
             </header>
             <Markdown remarkPlugins={[remarkGfm]}>{pageContent.contentMarkdown}</Markdown>
         </article>
