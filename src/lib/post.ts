@@ -2,6 +2,7 @@ import matter from "gray-matter";
 import fs from "fs/promises";
 import path from "path";
 import { consola } from "consola";
+import { promises } from "dns";
 
 // contentsのpathの宣言
 const postDirectory = path.join(process.cwd(), "posts");
@@ -30,4 +31,12 @@ const getPostData = async (slug: string): Promise<params> => {
     };
 };
 
+export const getPostList = async (): Promise<string[]> => {
+    const postFiles = await fs.readdir(postDirectory);
+    const slugs = postFiles.map((postFile) => {
+        return path.parse(postFile).name;
+    });
+    Promise.all;
+    return slugs;
+};
 export default getPostData;
