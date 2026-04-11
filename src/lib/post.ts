@@ -1,14 +1,12 @@
 import matter from "gray-matter";
 import fs from "fs/promises";
 import path from "path";
-import { consola } from "consola";
-import { promises } from "dns";
 
 // contentsのpathの宣言
 const postDirectory = path.join(process.cwd(), "posts");
 
 // 関数の戻り値の型宣言
-type params = {
+export type PostData = {
     slug: string;
     contentMarkdown: string;
     date: string;
@@ -16,14 +14,14 @@ type params = {
     tag: string[];
 };
 // mdファイルをreactコンポーネントに変換する関数
-const getPostData = async (slug: string): Promise<params> => {
+const getPostData = async (slug: string): Promise<PostData> => {
     const fullPath = path.join(postDirectory, `${slug}.md`);
     // mdファイルの取得
     const fileContent = await fs.readFile(fullPath);
     // gray-matterでmdファイルのfrontmatterを取得
     const mdData = matter(fileContent);
 
-    // paramsを返す
+    // PostDataを返す
     return {
         slug,
         contentMarkdown: mdData.content,
@@ -33,18 +31,18 @@ const getPostData = async (slug: string): Promise<params> => {
     };
 };
 
-// ./posts/のコンテンツを取得して、params[]を返す
-export const getAllPosts = async (): Promise<params[]> => {
+// ./posts/のコンテンツを取得して、PostData[]を返す
+export const getAllPosts = async (): Promise<PostData[]> => {
     const postFiles = await fs.readdir(postDirectory);
-    const postContents = await postFiles.map(async (postFile) => {
+    const postContents = postFiles.map(async (postFile) => {
         const slug = path.parse(postFile).name;
         return await getPostData(slug);
     });
     return await Promise.all(postContents);
 };
 
-// tagを受け取って、そのtagがついた記事のparams[]を返す関数
-export const getPostsByTag = async (tag: string): Promise<params[]> => {
+// tagを受け取って、そのtagがついた記事のPostData[]を返す関数
+export const getPostsByTag = async (tag: string): Promise<PostData[]> => {
     throw new Error("not implemeted");
 };
 export default getPostData;
