@@ -13,6 +13,7 @@ type params = {
     contentMarkdown: string;
     date: string;
     title: string;
+    tag: string[];
 };
 // mdファイルをreactコンポーネントに変換する関数
 const getPostData = async (slug: string): Promise<params> => {
@@ -28,6 +29,7 @@ const getPostData = async (slug: string): Promise<params> => {
         contentMarkdown: mdData.content,
         date: mdData.data.date,
         title: mdData.data.title,
+        tag: (mdData.data.tag as string[]).sort(),
     };
 };
 
