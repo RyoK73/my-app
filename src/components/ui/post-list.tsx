@@ -1,10 +1,11 @@
 import type { PostData } from "@/lib/post";
+import { getAllPosts } from "@/lib/post";
 import TagList from "./tag-list";
 import Link from "next/link";
 import path from "path";
 
-// postsで./posts/のコンテンツ一覧を受け取り
-const PostList = ({ posts }: { posts: PostData[] }) => {
+// postsで./posts/のコンテンツ一覧を受け取りリストを表示する
+export const PostList = (posts: PostData[]) => {
     return (
         <ul>
             {posts.map((post) => {
@@ -23,4 +24,14 @@ const PostList = ({ posts }: { posts: PostData[] }) => {
     );
 };
 
-export default PostList;
+// tagで./posts/*.mdをフィルターし適合するpostsをリストで表示する
+const PostListByTag = async ({ tag }: { tag?: string }) => {
+    const posts = await getAllPosts();
+    const postsByTag = tag
+        ? posts.filter((post) => {
+              return post.tag.includes(tag);
+          })
+        : posts;
+    return PostList(postsByTag);
+};
+export default PostListByTag;
