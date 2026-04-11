@@ -12,11 +12,10 @@ const PostList = async () => {
             <ul>
                 {postContents.map((postContent) => {
                     return (
-                        <li key={postContent.slug}>
+                        <li key={postContent.slug} className="block">
                             <Link href={path.join(process.cwd(), postContent.slug)}>
                                 <h1>{postContent.title}</h1>
                                 <time>{postContent.date}</time>
-                                <p></p>
                             </Link>
                         </li>
                     );
@@ -25,3 +24,5 @@ const PostList = async () => {
         </main>
     );
 };
+
+export default PostList;
