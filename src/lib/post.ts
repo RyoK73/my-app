@@ -42,4 +42,9 @@ export const getAllPosts = async (): Promise<params[]> => {
     });
     return await Promise.all(postContents);
 };
+
+// tagを受け取って、そのtagがついた記事のparams[]を返す関数
+export const getPostsByTag = async (tag: string): Promise<params[]> => {
+    throw new Error("not implemeted");
+};
 export default getPostData;
