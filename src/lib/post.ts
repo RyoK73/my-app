@@ -31,12 +31,12 @@ const getPostData = async (slug: string): Promise<params> => {
     };
 };
 
-export const getPostList = async (): Promise<string[]> => {
+export const getPostList = async (): Promise<params[]> => {
     const postFiles = await fs.readdir(postDirectory);
-    const slugs = postFiles.map((postFile) => {
-        return path.parse(postFile).name;
+    const postContents = await postFiles.map(async (postFile) => {
+        const slug = path.parse(postFile).name;
+        return await getPostData(slug);
     });
-    Promise.all;
-    return slugs;
+    return await Promise.all(postContents);
 };
 export default getPostData;
