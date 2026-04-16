@@ -25,18 +25,19 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ja" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased text-[18px] w-screen`}
+            >
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <header>
-                        <div>
-                            <div></div>
-                            <p></p>
-                        </div>
+                    <header className="h-[5vh] flex flex-row w-screen items-center gap-5">
+                        <div></div>
+                        <p className="font-bold text-3xl">Taruroma's blog</p>
+                        <p>つれずれ</p>
                     </header>
                     <div>{children}</div>
                 </ThemeProvider>
