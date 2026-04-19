@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { HbMenu } from "@/components/common/HbMenu";
+import { CustomSelect } from "@/components/common/CustomSelect";
 import TheSchemaLogo from "@/components/common/TheSchemaLogo";
 import { SwitchTheme } from "@/components/common/SwitchThemeButton";
 
@@ -43,9 +43,11 @@ export default function RootLayout({
                             </div>
                             <SwitchTheme />
                         </div>
-                        <HbMenu tags={[""]} tabs={[""]} />
+                        <div className="ml-2 mt-2">
+                            <CustomSelect tags={[""]} />
+                        </div>
                     </header>
-                    <div className="m-5">{children}</div>
+                    <div className="container mx-auto my-5">{children}</div>
                 </ThemeProvider>
             </body>
         </html>
