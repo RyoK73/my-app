@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HbMenu } from "@/components/common/HbMenu";
 import TheSchemaLogo from "@/components/common/TheSchemaLogo";
+import { SwitchTheme } from "@/components/common/SwitchThemeButton";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -35,9 +36,12 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <header className="h-auto flex flex-col w-screen items-start">
-                        <div className="w-screen border flex flex-row items-center">
-                            <TheSchemaLogo />
-                            <span>created By Ryok73</span>
+                        <div className="w-screen border flex flex-row justify-between items-center px-20">
+                            <div className=" flex flex-row items-center">
+                                <TheSchemaLogo />
+                                <span>created By Ryok73</span>
+                            </div>
+                            <SwitchTheme />
                         </div>
                         <HbMenu tags={[""]} tabs={[""]} />
                     </header>
