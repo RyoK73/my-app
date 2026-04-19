@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { CustomSelect } from "@/components/common/CustomSelect";
-import TheSchemaLogo from "@/components/common/TheSchemaLogo";
+import { Logo } from "@/components/common/LogoIcon";
 import { SwitchTheme } from "@/components/common/SwitchThemeButton";
+import Link from "next/link";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -28,7 +28,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ja" suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen grid-bg-light dark:grid-bg-dark`}
+            >
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
@@ -37,15 +39,13 @@ export default function RootLayout({
                 >
                     <header className="h-auto flex flex-col w-screen items-start">
                         <div className="w-screen border flex flex-row justify-between items-center px-20">
-                            <div className=" flex flex-row items-center">
-                                <TheSchemaLogo />
-                                <span>created By Ryok73</span>
-                            </div>
+                            <Link href={"."} className=" flex flex-row items-center text-3xl gap-4">
+                                <Logo />
+                                <text>$ME</text>
+                            </Link>
                             <SwitchTheme />
                         </div>
-                        <div className="ml-2 mt-2">
-                            <CustomSelect tags={[""]} />
-                        </div>
+                        <div className="ml-2 mt-2">{/* <CustomSelect tags={[""]} /> */}</div>
                     </header>
                     <div className="container mx-auto my-5">{children}</div>
                 </ThemeProvider>
