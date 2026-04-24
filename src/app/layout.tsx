@@ -63,15 +63,20 @@ export default async function RootLayout({
                 >
                     <div className="col-span-1 flex flex-col gap-5 m-5">
                         <CustomCard title={"About"}>
-                            <div>
-                                <img src="" alt="" />
-                                <h1>DEV活</h1>
-                            </div>
-                            <p></p>
-                            <hr />
+                            <img src="" alt="" />
+                            <h1 className="text-3xl font-semibold mb-2">DEV活</h1>
+                            <p>
+                                Web系ソフトウェアエンジニアを志望。
+                                <br />
+                                開発記録や個人的な技術に対する思いを綴ります。
+                                <br />
+                                個人開発・Arch Linux・設計
+                            </p>
+                            <hr className="m-2"/>
                         </CustomCard>
-                        <CustomCard title={"Tag"}>a</CustomCard>
-                        <CustomCard title={"Index"}>a</CustomCard>
+                        <CustomCard title={"Tag"}>
+                            <TagList tags={allTags} />
+                        </CustomCard>
                     </div>
                     <div className="col-span-2">
                         <div className="w-full border-b flex flex-row justify-between items-center ">
