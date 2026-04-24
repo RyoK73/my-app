@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SwitchTheme } from "@/components/common/SwitchThemeButton";
 import { CustomTabs, type TabProp, NonEmptyArray } from "@/components/common/CustomTabs";
-import Link from "next/link";
+import { CustomCard } from "@/components/common/CustomCard";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -52,30 +52,17 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="col-span-1 m-2 flex flex-col gap-3">
-                        {/* プロフ・About */}
-                        <div className="h-auto border">
-                            <Link
-                                href={"/"}
-                                className=" flex flex-row items-center text-3xl gap-4"
-                            ></Link>
-                            <div className="flex flex-row">
-                                {/* <img src="" alt="" /> */}
-                                <h1>Dev活</h1>
+                    <div className="col-span-1 flex flex-col gap-5 m-5">
+                        <CustomCard title={"About"}>
+                            <div>
+                                <img src="" alt="" />
+                                <h1>DEV活</h1>
                             </div>
-                            <p>
-                                ソフトウェアエンジニア志望
-                                <br />
-                                自動化・個人開発・設計
-                                <br />
-                                Arch Linux
-                            </p>
-                        </div>
-                        {/* バッジでリンクいれる */}
-                        <div className="border">
-                            <h1>Tag</h1>
-                            <div></div>
-                        </div>
+                            <p></p>
+                            <hr />
+                        </CustomCard>
+                        <CustomCard title={"Tag"}>a</CustomCard>
+                        <CustomCard title={"Index"}>a</CustomCard>
                     </div>
                     <div className="col-span-2">
                         <div className="w-full border-b flex flex-row justify-between items-center ">
