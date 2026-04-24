@@ -53,7 +53,7 @@ export default async function RootLayout({
     return (
         <html lang="ja" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased w-full grid-bg-light dark:grid-bg-dark grid grid-cols-3`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased w-full grid-bg-light dark:grid-bg-dark grid grid-cols-3 `}
             >
                 <ThemeProvider
                     attribute="class"
@@ -80,7 +80,7 @@ export default async function RootLayout({
                     </div>
                     <div className="col-span-2">
                         <div className="w-full border-b flex flex-row justify-between items-center ">
-                            <div className="flex flex-row items-center gap-3">
+                            <div className="flex flex-row items-center gap-0.5">
                                 <CustomTabs params={TabProps} />
                             </div>
                             <SwitchTheme />

@@ -8,7 +8,7 @@ export const CustomCard = ({ title, children }: CardProps) => {
     return (
         <Card className="">
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle className="text-foreground" >{title}</CardTitle>
             </CardHeader>
             <CardContent>{children}</CardContent>
         </Card>

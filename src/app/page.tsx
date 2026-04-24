@@ -2,7 +2,7 @@ import { PostListByTag } from "@/components/common/PostList";
 
 const App = async () => {
     return (
-        <main>
+        <main className="">
             <PostListByTag />
         </main>
     );

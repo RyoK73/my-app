@@ -9,20 +9,25 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 const PostList = (posts: PostData[]) => {
     const sortedPost = posts.sort((a, b) => b.date.localeCompare(a.date));
     return (
-        <ul className="grid grid-cols-3">
+        <ul className="">
             {sortedPost.map((post) => {
                 return (
                     // liはカード形式？かリスト形式にしたい
-                    <Link key={post.slug} href={path.join("/blog", post.slug)}>
-                        <li key={post.slug}>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>{post.title}</CardTitle>
-                                    <TagList tags={post.tag} />
-                                </CardHeader>
-                            </Card>
-                        </li>
-                    </Link>
+                    <li key={post.slug} className="">
+                        <Card className="rounded-sm">
+                            <CardHeader>
+                                <Link
+                                    key={post.slug}
+                                    href={path.join("/blog", post.slug)}
+                                    className=""
+                                >
+                                    <time className="">{post.date}</time>
+                                    <CardTitle className="text-foreground">{post.title}</CardTitle>
+                                </Link>
+                                <TagList tags={post.tag} />
+                            </CardHeader>
+                        </Card>
+                    </li>
                 );
             })}
         </ul>
