@@ -1,39 +1,35 @@
 "use client";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export type TabProp = {
-    tabName: string;
-    tabLink: string;
+    name: string;
+    link: string;
 };
 
 export type NonEmptyArray<T> = [T, ...T[]];
 
-export const CustomTabs = ({ params }: { params: NonEmptyArray<TabProp> }) => {
+export const CustomTabs = ({ tabs }: { tabs: NonEmptyArray<TabProp> }) => {
     const pathName = usePathname();
-    const activeTab =
-        params.find((p) =>
-            p.tabLink === pathName ||
-            (p.tabLink !== "/" && pathName.startsWith(p.tabLink))
-        )?.tabName ?? params[0].tabName;
-
     return (
-        <Tabs value={activeTab}>
-            <TabsList variant={"line"}>
-                {params.map((param) => {
-                    return (
-                        <Link key={param.tabName} href={param.tabLink}>
-                            <TabsTrigger
-                                value={param.tabName}
-                                className="w-50 text-2xl after:bg-vivid data-active:text-vivid data-active:font-semibold hover:text-vivid/70"
-                            >
-                                {param.tabName}
-                            </TabsTrigger>
-                        </Link>
-                    );
-                })}
-            </TabsList>
-        </Tabs>
+        <nav className="flex h-auto">
+            {tabs.map((tab) => {
+                const isActive =
+                    tab.link === pathName || (tab.link !== "/" && pathName.startsWith(tab.link));
+                return (
+                    <Link
+                        key={tab.name}
+                        href={tab.link}
+                        className={cn(
+                            "border border-border p-2 bg-background",
+                            isActive ? "bg-foreground text-background" : "bg-background text-foreground",
+                        )}
+                    >
+                        {tab.name}
+                    </Link>
+                );
+            })}
+        </nav>
     );
 };
