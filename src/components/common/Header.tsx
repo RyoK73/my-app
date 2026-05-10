@@ -1,4 +1,4 @@
-import { SwitchTheme } from "@/components/common/SwitchThemeButton";
+import { SwitchTheme } from "@/components/common/SwitchTheme";
 import { CustomTabs, type TabProp, NonEmptyArray } from "@/components/common/CustomTabs";
 const TabProps: NonEmptyArray<TabProp> = [
     {
@@ -18,11 +18,9 @@ const TabProps: NonEmptyArray<TabProp> = [
 export const Header = () => {
     return (
         <div className="col-span-2">
-            <div className="">
-                <div className="">
-                    <CustomTabs tabs={TabProps} />
-                </div>
-                <SwitchTheme />
+            <div className="flex h-15 item-center">
+                <CustomTabs tabs={TabProps} />
+                <SwitchTheme className="flex items-center"/>
             </div>
         </div>
     );
