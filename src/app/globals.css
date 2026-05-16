@@ -5,15 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/typography";
 
-body{
+body {
     background-image:
         /* 太い罫線 */
-        linear-gradient(to right,var(--grid-line) 1px,transparent 1px),
-        linear-gradient(to bottom ,var(--grid-line) 1px,transparent 1px),
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
         /* 細い罫線 */
-        linear-gradient(to right,var(--grid-subline) 1px,transparent 1px),
-        linear-gradient(to bottom ,var(--grid-subline) 1px,transparent 1px);
-    background-size: 80px 80px,80px 80px,16px 16px,16px 16px;
+        linear-gradient(to right, var(--grid-subline) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-subline) 1px, transparent 1px);
+    background-size:
+        80px 80px,
+        80px 80px,
+        16px 16px,
+        16px 16px;
 }
 
 @theme inline {
@@ -64,6 +68,7 @@ body{
 :root {
     --background: oklch(91.599% 0.00696 88.615);
     --foreground: oklch(0.145 0 0);
+    --content-background: oklch(91.599% 0.00696 88.615) / 20;
     --grid-line: oklch(0 0 0 / 0.07);
     --grid-subline: oklch(0 0 0 / 0.03);
     --vivid: oklch(50% 0.19 38);
@@ -103,10 +108,11 @@ body{
 .dark {
     --background: oklch(26.033% 0.00003 271.152);
     --foreground: oklch(0.91 0 0);
+    --content-background: oklch(26.033% 0.00003 271.152) / 20;
     --grid-line: oklch(1 0 0 / 0.08);
     --grid-subline: oklch(1 0 0 / 0.03);
     --vivid: oklch(84.2% 0.1641 145.8);
-    --vivid-end: oklch(89.2% 0.1090 149.0);
+    --vivid-end: oklch(89.2% 0.109 149);
     --card: oklch(38.666% 0.00004 271.152 / 0.304);
     --card-foreground: oklch(0.985 0 0 / 0.7);
     --popover: oklch(0.205 0 0);

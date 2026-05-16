@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/post";
 const posts = await getAllPosts();
 export const Sidebar = () => {
     return (
-        <div className="col-span-1 flex flex-col gap-5 m-5">
+        <div className="col-span-1 flex flex-col gap-5 ">
             <CustomCard title={"About"}>
                 <div className="flex flex-col items-center gap-3 mb-3">
                     <div className="w-16 h-16 rounded-full  from-vivid to-vivid-end flex items-center justify-center text-white text-2xl font-bold select-none">
