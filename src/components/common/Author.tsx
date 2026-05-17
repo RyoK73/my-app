@@ -1,6 +1,6 @@
 import { FaXTwitter } from "react-icons/fa6";
 import { VscGithubAlt } from "react-icons/vsc";
-import Link from "next/link";
+import { ExternalLink } from "../ExternalLink";
 import { CustomCard } from "./CustomCard";
 export const Author = () => {
     return (
@@ -31,12 +31,9 @@ export const Author = () => {
                 </tbody>
             </table>
             <div className="flex text-4xl pt-3 justify-evenly gap-2 transition [&_a:hover]:opacity-20 [&_a:hover]:duration-300 ">
-                <Link href="">
+                <ExternalLink linkText={"https://x.com/RyoK73EG"}>
                     <FaXTwitter />
-                </Link>
-                <Link href="">
-                    <VscGithubAlt />
-                </Link>
+                </ExternalLink>
             </div>
         </CustomCard>
     );
