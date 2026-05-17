@@ -1,14 +1,36 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "../ui/card";
+import { cn } from "@/lib/utils";
 
 type CardProps = {
-    title: string;
+    title?: string;
+    label?: string;
     children: React.ReactNode;
+    className?: string;
 };
-export const CustomCard = ({ title, children }: CardProps) => {
+export const CustomCard = ({
+    title,
+    label,
+    children,
+    className,
+}: CardProps) => {
     return (
-        <Card className="transition-all duration-300 ">
-            <CardHeader>
-                <CardTitle className="text-foreground">{title}</CardTitle>
+        <Card
+            className={cn(
+                "relative border border-border rounded-none bg-content-background p-4",
+                className,
+            )}
+        >
+            <CardHeader className="">
+                <CardTitle>{title}</CardTitle>
+                <CardDescription className="absolute -top-3 px-1 z-10 bg-background text-foreground font-medium">
+                    {label}
+                </CardDescription>
             </CardHeader>
             <CardContent>{children}</CardContent>
         </Card>

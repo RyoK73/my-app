@@ -9,23 +9,23 @@ import {
 } from "@/components/common/CustomTabs";
 const tabProps: NonEmptyArray<TabProp> = [
     {
-        name: "01 . HOME",
+        name: "01.HOME",
         link: "/",
     },
     {
-        name: "02 . WORK",
+        name: "02.WORK",
         link: "/blog/tag/works",
     },
     {
-        name: "03 . ABOUT",
+        name: "03.ABOUT",
         link: "/about",
     },
 ];
-const tabSize = "w-35 h-auto";
+const tabSize = "size-25";
 
 export const Header = () => {
     return (
-        <header className="col-span-2 flex items-center border border-border m-8 h-25 divide-x divide-border bg-background/20 text-input">
+        <header className="col-span-2 flex items-center border border-border divide-x divide-border bg-content-background text-input">
             <Link
                 href="/"
                 aria-label="トップページへ戻る"

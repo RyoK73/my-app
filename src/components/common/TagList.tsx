@@ -9,7 +9,12 @@ export const TagList = ({ tags }: { tags: string[] }) => {
             {tags.map((tag) => {
                 return (
                     <Link key={tag} href={path.join("/blog/tag", tag)}>
-                        <Badge variant={"outline"} className="border-vivid/30 text-vivid hover:bg-vivid/10 transition-colors cursor-pointer">{tag}</Badge>
+                        <Badge
+                            variant={"outline"}
+                            className="border-vivid/30 text-vivid hover:bg-vivid/10 transition-colors cursor-pointer rounded-none"
+                        >
+                            {tag}
+                        </Badge>
                     </Link>
                 );
             })}
