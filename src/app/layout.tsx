@@ -47,7 +47,7 @@ export default async function RootLayout({
                     <div className="w-screen flex flex-col p-5  gap-5">
                         <Header />
                         <div className="grid grid-cols-5 gap-5">
-                            <Sidebar />
+                            <Sidebar className="min-w-100" />
                             <main className="container col-span-4">
                                 {children}
                             </main>
