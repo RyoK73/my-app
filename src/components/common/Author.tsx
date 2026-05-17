@@ -45,7 +45,7 @@ export const Author = () => {
                         <SiGithub />
                     </ExternalLink>
                     <ExternalLink
-                        linkText="https://zenn.dev/dashboard"
+                        linkText="https://zenn.dev/taruroma"
                         className="border-flow"
                     >
                         <SiZenn />
