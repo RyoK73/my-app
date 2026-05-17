@@ -25,9 +25,7 @@ const tabSize = "size-25";
 
 export const Header = () => {
     return (
-        <header
-            className={`col-span-2 flex items-center border border-border divide-x divide-border bg-content-background text-input`}
-        >
+        <header className="col-span-2 flex items-center border border-border divide-x divide-border bg-content-background text-input">
             <Link
                 href="/"
                 aria-label="トップページへ戻る"
