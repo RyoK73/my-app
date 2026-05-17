@@ -68,7 +68,7 @@ body {
 :root {
     --background: oklch(91.599% 0.00696 88.615);
     --foreground: oklch(0.145 0 0);
-    --content-background: oklch(91.599% 0.00696 88.615) / 20;
+    --content-background: oklch(91.599% 0.00696 88.615 / 0.2);
     --grid-line: oklch(0 0 0 / 0.07);
     --grid-subline: oklch(0 0 0 / 0.03);
     --vivid: oklch(50% 0.19 38);
@@ -108,7 +108,7 @@ body {
 .dark {
     --background: oklch(26.033% 0.00003 271.152);
     --foreground: oklch(0.91 0 0);
-    --content-background: oklch(26.033% 0.00003 271.152) / 20;
+    --content-background: oklch(26.033% 0.00003 271.152 / 0.2);
     --grid-line: oklch(1 0 0 / 0.08);
     --grid-subline: oklch(1 0 0 / 0.03);
     --vivid: oklch(84.2% 0.1641 145.8);
