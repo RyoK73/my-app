@@ -1,9 +1,14 @@
 import Link from "next/link";
 import path from "path";
 import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utils";
 
 // tagsを受け取って、Linkをバッジ表示する。各リンク先は、./@/app/blog/tag/[tag]へ
-export const TagList = ({ tags }: { tags: string[] }) => {
+type TagProps = {
+    tags: string[];
+    className?: string;
+};
+export const TagList = ({ tags, className }: TagProps) => {
     return (
         <div className="flex flex-wrap gap-1.5 mt-1">
             {tags.map((tag) => {
@@ -11,7 +16,10 @@ export const TagList = ({ tags }: { tags: string[] }) => {
                     <Link key={tag} href={path.join("/blog/tag", tag)}>
                         <Badge
                             variant={"outline"}
-                            className="border-vivid/30 text-vivid hover:bg-vivid/10 transition-colors cursor-pointer rounded-none"
+                            className={cn(
+                                "border border-border cursor-pointer rounded-none",
+                                className,
+                            )}
                         >
                             {tag}
                         </Badge>
