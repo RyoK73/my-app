@@ -1,5 +1,5 @@
 import type { PostData } from "@/lib/post";
-import { getAllPosts } from "@/lib/post";
+import { getPosts } from "@/lib/post";
 import { TagList } from "./TagList";
 import Link from "next/link";
 import path from "path";
@@ -34,7 +34,8 @@ const PostList = (posts: PostData[]) => {
 
 // tagで./posts/*.mdをフィルターし適合するpostsをリストで表示する
 export const PostListByTag = async ({ tag }: { tag?: string }) => {
-    const posts = await getAllPosts();
+    const posts = await getPosts
+    ();
     const postsByTag = tag
         ? posts.filter((post) => {
               return post.tag.includes(tag);
